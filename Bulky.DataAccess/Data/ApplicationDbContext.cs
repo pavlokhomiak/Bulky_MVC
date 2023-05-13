@@ -11,6 +11,7 @@ namespace Bulky.DataAccess.Data
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +20,65 @@ namespace Bulky.DataAccess.Data
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
                 );
+
+            modelBuilder.Entity<Product>().HasData(
+               new Product 
+               { 
+                   Id = 1, 
+                   Title = "Cotton Candy", 
+                   Author = "Pavlo Khomiak",
+                   Description = "Praesent vitae sodales libero.",
+                   ISBN = "WS333333301",
+                   ListPrice = 70,
+                   Price = 65,
+                   Price50 = 60,
+                   Price100 = 55,
+                   CategoryId = 1,
+                   ImageUrl = ""
+               },
+               new Product
+               {
+                   Id = 2,
+                   Title = "Vanish in the Sunset",
+                   Author = "Julian Button",
+                   Description = "Praesent vitae sodales libero.",
+                   ISBN = "RITO55333301",
+                   ListPrice = 55,
+                   Price = 50,
+                   Price50 = 40,
+                   Price100 = 35,
+                   CategoryId = 1,
+                   ImageUrl = ""
+               },
+               new Product
+               {
+                   Id = 3,
+                   Title = "Dark Skies",
+                   Author = "Nancy Hoover",
+                   Description = "Praesent vitae sodales libero.",
+                   ISBN = "CAW7777701",
+                   ListPrice = 40,
+                   Price = 30,
+                   Price50 = 25,
+                   Price100 = 20,
+                   CategoryId = 2,
+                   ImageUrl = ""
+               },
+               new Product
+               {
+                   Id = 4,
+                   Title = "Fortune of Time",
+                   Author = "Billy Spark",
+                   Description = "Praesent vitae sodales libero.",
+                   ISBN = "SWD99999901",
+                   ListPrice = 99,
+                   Price = 90,
+                   Price50 = 85,
+                   Price100 = 80,
+                   CategoryId = 3,
+                   ImageUrl = ""
+               }
+            );
         }
     }
 }
